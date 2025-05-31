@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=63.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bruty"
+description = "National Bathymetric Source module to combine data and export product areas"
+readme = "README.md"
+requires-python = ">=3.8.2"
+license = {file = "LICENSE"}
+authors = [
+    {name = "Barry Gallagher", email = "barry.gallagher@noaa.gov"},
+    {name = "Eric Younkin", email = "eric.g.younkin@noaa.gov"},
+    {name = "Jack Riley", email = "Jack.Riley@noaa.gov"},
+    {name = "Chen Zhang", email = "chen.zhang@noaa.gov"},
+    {name = "Glen Rice", email = "Glen.Rice@noaa.gov"},
+]
+classifiers = [
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = [
+    "numpy>=1.18.4",
+    "pyproj>=2.6.1.post1",
+]
+dynamic = ["version"]
+
+[project.urls]
+Homepage = "https://github.com/noaa-ocs-hydrography/bruty"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["nbs*"]
+exclude = ["tests", "*.tests", "*.tests.*", "tests.*", "scripts*", "docs*"]
+
+[tool.setuptools.dynamic]
+version = {attr = "nbs.bruty.__version__.__version__"}

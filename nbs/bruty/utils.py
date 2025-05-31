@@ -13,7 +13,7 @@ import rasterio.crs
 from osgeo import gdal, osr, ogr
 import pyproj.exceptions
 from pyproj import Transformer, CRS
-from nbs.bruty.exceptions import BrutyFormatError, BrutyMissingScoreError, BrutyUnkownCRS, BrutyError
+from nbs.bruty.exceptions import BrutyMissingScoreError, BrutyUnkownCRS, BrutyError
 
 if os.name == 'posix':
     import fcntl
@@ -804,7 +804,7 @@ def save_soundings_from_image(inputname, outputname, res, flip_depth=True):
         if 0 != lyr.CreateField(field):
             raise RuntimeError("Creating field failed.", field.GetName())
 
-    sounding_array = sounding_array.astype(numpy.float).T
+    sounding_array = sounding_array.astype(numpy.float64).T
     for x, y, z in sounding_array:
         point = ogr.Geometry(ogr.wkbPoint)
         point.AddPoint(float(x), float(y), float(z))

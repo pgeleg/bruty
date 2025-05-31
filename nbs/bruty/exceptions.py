@@ -1,11 +1,11 @@
-from nbs_utils.points_utils import NBSFormatError
+# from nbs_utils.points_utils import NBSFormatError
 
 class BrutyError(Exception):
     pass
 
 
-class BrutyFormatError(BrutyError, NBSFormatError):
-    pass
+# class BrutyFormatError(BrutyError, NBSFormatError):
+#     pass
 
 
 class BrutyMissingScoreError(BrutyError):
